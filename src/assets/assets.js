@@ -12,6 +12,9 @@ import desert2 from './desert2.png'
 import desert3 from './desert3.png'
 import desert4 from './desert4.png'
 import productPage from './productPage.png'
+import testimonial1 from './testimonial1.png'
+import testimonial2 from './testimonial2.png'
+import testimonial3 from './testimonial3.png'
 
 export const assets = {
     hero_image,
@@ -27,5 +30,8 @@ export const assets = {
     desert2,
     desert3,
     desert4,
-    productPage
+    productPage,
+    testimonial1,
+    testimonial2,
+    testimonial3
 }

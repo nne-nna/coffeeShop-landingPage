@@ -21,6 +21,13 @@ export default {
       animation: {
         'fade-in-up': 'fade-in-up 0.5s ease-out',
       },
+      coffee: {
+        dark: '#2C1810',
+        light: '#422419',
+        accent: '#E6B17E',
+        secondary: '#967259',
+        cream: '#FDF8F3',
+      }
     },
   },
   plugins: [],
