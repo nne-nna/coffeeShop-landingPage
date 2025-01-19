@@ -4,6 +4,7 @@ import { ArrowRight } from 'lucide-react';
 
 const ExploreProducts = () => {
     return (
+      
         <div className="relative bg-[#2C1810] py-20 overflow-hidden">
             {/* Background coffee beans */}
             <img 

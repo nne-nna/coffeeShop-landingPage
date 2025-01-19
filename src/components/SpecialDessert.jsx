@@ -39,7 +39,7 @@ const SpecialDessert = () => {
                 <div className="relative">
                     <button 
                         onClick={prevSlide}
-                        className="absolute left-0 top-1/2 -translate-y-1/2 -left-4 w-10 h-10 bg-white shadow-lg rounded-full flex items-center justify-center hover:bg-[#E6B17E] transition-colors z-10"
+                        className="absolute top-1/2 -translate-y-1/2 -left-4 w-10 h-10 bg-white shadow-lg rounded-full flex items-center justify-center hover:bg-[#E6B17E] transition-colors z-10"
                     >
                         <ChevronLeft className="w-6 h-6 text-gray-600" />
                     </button>
@@ -69,7 +69,7 @@ const SpecialDessert = () => {
 
                     <button 
                         onClick={nextSlide}
-                        className="absolute right-0 top-1/2 -translate-y-1/2 -right-4 w-10 h-10 bg-white shadow-lg rounded-full flex items-center justify-center hover:bg-[#E6B17E] transition-colors z-10"
+                        className="absolute top-1/2 -translate-y-1/2 -right-4 w-10 h-10 bg-white shadow-lg rounded-full flex items-center justify-center hover:bg-[#E6B17E] transition-colors z-10"
                     >
                         <ChevronRight className="w-6 h-6 text-gray-600" />
                     </button>

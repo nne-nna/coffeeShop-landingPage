@@ -8,7 +8,7 @@ const SpecialCoffee = () => {
         { name: "Original Coffee", price: "Rs. 159", image: assets.special2 },
         { name: "Iced Coffee", price: "Rs. 149", image: assets.special3 },
         { name: "Filter Coffee", price: "Rs. 99", image: assets.special4 },
-        // Add your additional items here
+
         { name: "Cappuccino", price: "Rs. 179", image: assets.special1 },
         { name: "Espresso", price: "Rs. 129", image: assets.special2 },
         { name: "Mocha", price: "Rs. 189", image: assets.special3 },
@@ -40,7 +40,7 @@ const SpecialCoffee = () => {
                     {/* Navigation Buttons */}
                     <button 
                         onClick={prevSlide}
-                        className="absolute left-0 top-1/2 -translate-y-1/2 -left-4 w-10 h-10 bg-white shadow-lg rounded-full flex items-center justify-center hover:bg-[#E6B17E] transition-colors z-10"
+                        className="absolute top-1/2 -translate-y-1/2 -left-4 w-10 h-10 bg-white shadow-lg rounded-full flex items-center justify-center hover:bg-[#E6B17E] transition-colors z-10"
                     >
                         <ChevronLeft className="w-6 h-6 text-gray-600" />
                     </button>
@@ -70,7 +70,7 @@ const SpecialCoffee = () => {
 
                     <button 
                         onClick={nextSlide}
-                        className="absolute right-0 top-1/2 -translate-y-1/2 -right-4 w-10 h-10 bg-white shadow-lg rounded-full flex items-center justify-center hover:bg-[#E6B17E] transition-colors z-10"
+                        className="absolute top-1/2 -translate-y-1/2 -right-4 w-10 h-10 bg-white shadow-lg rounded-full flex items-center justify-center hover:bg-[#E6B17E] transition-colors z-10"
                     >
                         <ChevronRight className="w-6 h-6 text-gray-600" />
                     </button>
