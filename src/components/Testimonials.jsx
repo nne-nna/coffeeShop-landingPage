@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import { assets } from '../assets/assets';
-import { motion, AnimatePresence } from 'framer-motion';
 
 const Testimonials = () => {
     const testimonials = [
@@ -45,72 +44,63 @@ const Testimonials = () => {
                 <p className="text-center text-gray-600 mb-8 sm:mb-12">What people say about us</p>
 
                 <div className="relative">
+                    {/* Navigation Buttons - Hidden on mobile, shown on larger screens */}
                     <button 
                         onClick={prevSlide}
-                        className="absolute left-0 sm:-left-4 top-1/2 -translate-y-1/2 w-8 sm:w-10 h-8 sm:h-10 
-                                 bg-white shadow-lg rounded-full flex items-center justify-center 
-                                 hover:bg-[#E6B17E] transition-colors z-10"
+                        className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white shadow-lg rounded-full items-center justify-center hover:bg-[#E6B17E] transition-colors z-10"
                     >
-                        <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-gray-600" />
+                        <ChevronLeft className="w-6 h-6 text-gray-600" />
                     </button>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                        <AnimatePresence mode="wait">
-                            {[currentIndex].map((index) => (
-                                <motion.div
-                                    key={index}
-                                    initial={{ opacity: 0, x: 50 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    exit={{ opacity: 0, x: -50 }}
-                                    className="col-span-1 md:col-span-2 lg:col-span-3 md:px-12 lg:px-24"
-                                >
-                                    <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg relative group hover:shadow-xl transition-all duration-300">
-                                        <Quote className="absolute top-6 right-6 w-8 sm:w-10 h-8 sm:h-10 text-[#E6B17E]/20" />
-                                        <div className="flex items-center mb-6">
-                                            <img 
-                                                src={testimonials[index].avatar}
-                                                alt={testimonials[index].name}
-                                                className="w-12 sm:w-14 h-12 sm:h-14 rounded-full ring-4 ring-[#E6B17E]/20"
-                                            />
-                                            <div className="ml-4">
-                                                <h3 className="font-semibold text-base sm:text-lg">{testimonials[index].name}</h3>
-                                                <p className="text-gray-500 text-xs sm:text-sm">{testimonials[index].role}</p>
-                                            </div>
-                                        </div>
-                                        <div className="flex text-[#E6B17E] mb-4">
-                                            {[...Array(testimonials[index].rating)].map((_, i) => (
-                                                <Star key={i} className="w-4 sm:w-5 h-4 sm:h-5 fill-current" />
-                                            ))}
-                                        </div>
-                                        <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                                            {testimonials[index].text}
-                                        </p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                        {testimonials.map((testimonial, index) => (
+                            <div 
+                                key={index}
+                                className={`bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg relative group hover:shadow-xl transition-all duration-300 ${
+                                    index === currentIndex ? 'block' : 'hidden sm:block'
+                                }`}
+                            >
+                                <Quote className="absolute top-6 right-6 w-8 h-8 sm:w-10 sm:h-10 text-[#E6B17E]/20" />
+                                <div className="flex items-center mb-4 sm:mb-6">
+                                    <img 
+                                        src={testimonial.avatar}
+                                        alt={testimonial.name}
+                                        className="w-12 h-12 sm:w-14 sm:h-14 rounded-full ring-4 ring-[#E6B17E]/20"
+                                    />
+                                    <div className="ml-4">
+                                        <h3 className="font-semibold text-base sm:text-lg">{testimonial.name}</h3>
+                                        <p className="text-gray-500 text-xs sm:text-sm">{testimonial.role}</p>
                                     </div>
-                                </motion.div>
-                            ))}
-                        </AnimatePresence>
+                                </div>
+                                <div className="flex text-[#E6B17E] mb-3 sm:mb-4">
+                                    {[...Array(testimonial.rating)].map((_, i) => (
+                                        <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-current" />
+                                    ))}
+                                </div>
+                                <p className="text-gray-600 text-sm sm:text-base leading-relaxed">{testimonial.text}</p>
+                            </div>
+                        ))}
                     </div>
 
                     <button 
                         onClick={nextSlide}
-                        className="absolute right-0 sm:-right-4 top-1/2 -translate-y-1/2 w-8 sm:w-10 h-8 sm:h-10 
-                                 bg-white shadow-lg rounded-full flex items-center justify-center 
-                                 hover:bg-[#E6B17E] transition-colors z-10"
+                        className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white shadow-lg rounded-full items-center justify-center hover:bg-[#E6B17E] transition-colors z-10"
                     >
-                        <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-gray-600" />
+                        <ChevronRight className="w-6 h-6 text-gray-600" />
                     </button>
-                </div>
 
-                {/* Pagination dots */}
-                <div className="flex justify-center space-x-2 mt-6">
-                    {testimonials.map((_, idx) => (
-                        <button
-                            key={idx}
-                            onClick={() => setCurrentIndex(idx)}
-                            className={`w-2 h-2 rounded-full transition-all duration-300 
-                                     ${idx === currentIndex ? 'bg-[#E6B17E] w-4' : 'bg-gray-300'}`}
-                        />
-                    ))}
+                    {/* Mobile Navigation Dots */}
+                    <div className="flex justify-center mt-6 gap-2 sm:hidden">
+                        {testimonials.map((_, index) => (
+                            <button
+                                key={index}
+                                onClick={() => setCurrentIndex(index)}
+                                className={`w-2 h-2 rounded-full transition-colors ${
+                                    index === currentIndex ? 'bg-[#E6B17E]' : 'bg-gray-300'
+                                }`}
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>
